@@ -12,7 +12,7 @@ WORKDIR /usr/lib/jvm
 
 RUN apt update \
     && apt install -y wget build-essential libz-dev zlib1g-dev \
-    && wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz\
+    && wget -q https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz\
     && tar -xzf graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz \
     && rm -rf graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz \
     && apt clean all
