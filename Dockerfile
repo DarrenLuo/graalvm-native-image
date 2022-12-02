@@ -10,10 +10,7 @@ ARG GRAALVM_VERSION=${GRAALVM_YEAR_VERSION}.${GRAALVM_MAJOR_VERSION}.${GRAALVM_M
 
 WORKDIR /usr/lib/jvm
 
-COPY graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz .
-
 RUN apt update \
-# RUN ls \
     && apt install -y wget build-essential libz-dev zlib1g-dev \
     && wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz\
     && tar -xzf graalvm-ce-java${JAVA_VERSION}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz \
